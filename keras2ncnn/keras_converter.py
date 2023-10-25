@@ -475,12 +475,12 @@ class KerasConverter:
         bn_eps = layer['layer']['config']['epsilon']
 
         bn_params = {}
-        bn_params['bn_beta'] = np.full([num_output, ], 0, dtype=np.float)
-        bn_params['bn_gamma'] = np.full([num_output, ], 1, dtype=np.float)
+        bn_params['bn_beta'] = np.full([num_output, ], 0, dtype=float)
+        bn_params['bn_gamma'] = np.full([num_output, ], 1, dtype=float)
         bn_params['bn_moving_mean'] = np.full(
-            [num_output, ], 0, dtype=np.float)
+            [num_output, ], 0, dtype=float)
         bn_params['bn_moving_variance'] = np.full(
-            [num_output, ], 1, dtype=np.float)
+            [num_output, ], 1, dtype=float)
 
         for weight_name in layer['weight'].keys():
             bn_params['bn_' +
